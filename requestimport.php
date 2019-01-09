@@ -1,8 +1,8 @@
 <?php 	
 	$servername = "localhost";
-	$username = "a565762_trklst";
+	$username = "autoimport_user";
 	$password = "trklst123er";
-	$dbname = "a565762_autoimport";
+	$dbname = "autoimport";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -28,7 +28,7 @@
 		echo "importcomplete";
 	}
 	else{
-		$sql = "UPDATE modulelist SET importflat='1' WHERE UID=". $moduleID;
+		$sql = "UPDATE modulelist SET importflag='1' WHERE UID=". $moduleID;
 		$result = $conn->query($sql);
 		print($result);
 	}

@@ -1,8 +1,8 @@
 <?php 	
 	$servername = "localhost";
-	$username = "a565762_trklst";
+	$username = "autoimport_user";
 	$password = "trklst123er";
-	$dbname = "a565762_autoimport";
+	$dbname = "autoimport";
 
 	//$username = "root";
 	//$password = "!conpw2018!";	
@@ -16,7 +16,7 @@
 	}
 	$moduleID = $_GET['moduleid'];
 
-	$sql = "UPDATE modulelist SET importflat='0' WHERE UID=". $moduleID;
+	$sql = "UPDATE modulelist SET importflag='0' WHERE UID=". $moduleID;
 
 	$result = $conn->query($sql);
 	echo "1";		

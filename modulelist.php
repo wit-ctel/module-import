@@ -26,9 +26,9 @@
 <?php 	
 
 	$servername = "localhost";
-	$username = "a565762_trklst";
+	$username = "autoimport_user";
 	$password = "trklst123er";
-	$dbname = "a565762_autoimport";
+	$dbname = "autoimport";
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -36,11 +36,12 @@
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	}
+	
 	$importUser = $_GET['import'];
 
 	//$sql = "select * from modulelist where lecturername='". $importUser ."'";
 
-	$sql = "SELECT modulelist.UID, modulelist.crn, modulelist.moduletitle, modulelist.lecturerid, modulelist.importflat, modulelist.importcomplete, lecturerlist.username, lecturerlist.alphanumeric FROM modulelist INNER JOIN lecturerlist ON lecturerlist.UID = modulelist.lecturerid where lecturerlist.alphanumeric = '". $importUser ."'";
+	$sql = "SELECT modulelist.UID, modulelist.crn, modulelist.moduletitle, modulelist.lectureruid, modulelist.importflag, modulelist.importcomplete, lecturerlist.username, lecturerlist.alphanumeric FROM modulelist INNER JOIN lecturerlist ON lecturerlist.UID = modulelist.lectureruid where lecturerlist.alphanumeric = '". $importUser ."'";
 
 	$result = $conn->query($sql);	
 	// output data of each row
@@ -52,15 +53,15 @@
 			<div class="select">
 
 				<?php
-				if($row['importflat'] ==0 ){	
+				if($row['importflag'] ==0 ){	
 					//echo "<div id='UID".$UID."' class='button action import'>Import</div>";
 					echo "<button id='UID".$UID."' type='button' class='action btn btn-success'>Import Module Content</button>";
 				}
-				if($row['importflat'] == 1 && $row['importcomplete'] == 0){
+				if($row['importflag'] == 1 && $row['importcomplete'] == 0){
 					echo "<button id='UID".$UID."' type='button' class='action btn btn-danger'>Cancel Import</button>";
 					//echo "<div id='UID".$UID."'  class='button action cancel'>Cancel</div>";
 				}	
-				if($row['importflat'] == 1 && $row['importcomplete'] == 1){
+				if($row['importflag'] == 1 && $row['importcomplete'] == 1){
 					echo "<button id='UID".$UID."' type='button' class='btn btn-primary completed'>Import Completed</button>";
 					//echo "<div id='UID".$UID."'  class='button completed'>Completed</div>";
 				}			
