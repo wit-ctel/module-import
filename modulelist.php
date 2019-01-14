@@ -1,4 +1,9 @@
-<html lang="en">
+<?php
+	
+<?php include ("lib/databasephp"); ?>
+
+?>
+	<html lang="en">
   <head>
     <meta charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -25,19 +30,6 @@
 	</div>
 	<h4>Module Title:</h4>
 <?php 	
-
-	$servername = "localhost";
-	$username = "autoimport_user";
-	$password = "trklst123er";
-	$dbname = "autoimport";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
-	
 	$importUser = $_GET['import'];
 
 	//$sql = "select * from modulelist where lecturername='". $importUser ."'";
