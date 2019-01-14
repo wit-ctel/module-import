@@ -1,7 +1,5 @@
 <?php
-	
-<?php include ("lib/database.php"); ?>
-
+	include ("lib/database.php");
 ?>
 	<html lang="en">
   <head>
