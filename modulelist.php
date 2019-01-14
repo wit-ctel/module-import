@@ -1,6 +1,6 @@
 <?php
 	
-<?php include ("lib/databasephp"); ?>
+<?php include ("lib/database.php"); ?>
 
 ?>
 	<html lang="en">

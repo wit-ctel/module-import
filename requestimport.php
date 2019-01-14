@@ -1,5 +1,5 @@
 <?php 	
-	include ("lib/databasephp");
+	include ("lib/database.php");
 
 	$moduleID = $_GET['moduleid'];
 
